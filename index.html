@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risque Braquage - Abidjan</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+   
+</head>
+
+<body>
+<div class="app">
+
+    <h1>⚠️ Risque de Braquage</h1>
+    <p class="subtitle">Estimation par quartier — Abidjan</p>
+
+    <!-- FORMULAIRE -->
+    <form id="formulaire" onsubmit="return calculer(event)">
+
+        <label>🎂 Âge</label>
+        <input type="number" id="age" placeholder="Ex : 25" min="5" max="100" required>
+
+        <label>👤 Sexe</label>
+        <select id="sexe" required>
+            <option value="" disabled selected>Choisir</option>
+            <option value="homme">Homme</option>
+            <option value="femme">Femme</option>
+        </select>
+
+        <label>📍 Zone</label>
+        <select id="zone" required>
+            <option value="" disabled selected>Choisir un quartier</option>
+            <option value="adjame">Adjamé</option>
+            <option value="cocody">Cocody</option>
+            <option value="yopougon">Yopougon</option>
+            <option value="abobo">Abobo</option>
+        </select>
+
+        <button type="submit">Calculer</button>
+    </form>
+
+    <!-- RÉSULTAT -->
+    <div id="resultat">
+
+        <div class="cercle">
+            <svg width="150" height="150" viewBox="0 0 150 150">
+                <circle class="fond" cx="75" cy="75" r="60"/>
+                <circle class="barre" id="barre" cx="75" cy="75" r="60"
+                    stroke-dasharray="377"
+                    stroke-dashoffset="377"/>
+            </svg>
+            <div class="pourcentage" id="pct">0%</div>
+        </div>
+
+        <div class="niveau" id="niveau">—</div>
+
+        <div class="infos">
+            <div class="ligne"><span>📍 Quartier</span><span id="rZone">—</span></div>
+            <div class="ligne"><span>🎂 Âge</span><span id="rAge">—</span></div>
+            <div class="ligne"><span>👤 Sexe</span><span id="rSexe">—</span></div>
+            <div class="ligne"><span>🌙 Nuit</span><span id="rNuit">—</span></div>
+            <div class="ligne"><span>☀️ Jour</span><span id="rJour">—</span></div>
+        </div>
+
+        <div class="conseil" id="conseil"></div>
+
+        <button class="refaire" onclick="reset()">🔄 Refaire</button>
+    </div>
+
+    <div class="footer">
+        ⚠️ Estimation indicative · Aucune donnée collectée<br>
+        Urgence : <strong style="color:#ff4757">Police 110 · Gendarmerie 111</strong>
+    </div>
+
+</div>
+
+</body>
+</html>
